@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 Route::get("/posts", function () {
   return view("posts");
@@ -8,7 +9,7 @@ Route::get("/posts", function () {
 
 Route::get("/posts/{slug}", function (String $slug) {
   try {
-    $post = file_get_contents(__DIR__ . "./../resources/posts/{$slug}.html");
+    $post = Post::find($slug);
   } catch(Exception $e) {
     abort(404, $e);
   }
