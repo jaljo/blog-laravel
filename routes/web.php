@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
 Route::get("/posts", function () {
-  return view("posts");
+  $posts = Post::findAll();
+
+  return view("posts", [
+    "posts" => $posts,
+  ]);
 });
 
 Route::get("/posts/{slug}", function (String $slug) {

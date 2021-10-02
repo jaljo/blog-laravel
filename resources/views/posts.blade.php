@@ -9,9 +9,10 @@
     </head>
     <body>
         <h1>Blog posts</h1>
-
-        <article>
-            <a href="/post">Click to view</a>
-        </article>
+        <?php foreach($posts as $post) : ?>
+          <article>
+              <?php echo $post ?>
+          </article>
+        <?php endforeach ?>
     </body>
 </html>
