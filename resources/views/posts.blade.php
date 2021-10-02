@@ -8,10 +8,16 @@
         <title>Blog</title>
     </head>
     <body>
-        <h1>Blog posts</h1>
         <?php foreach($posts as $post) : ?>
+          <h1>
+            <a href="/posts/<?php echo $post->slug ?>">
+              <?php echo $post->title ?>
+            </a>
+          </h1>
+          <p><?php echo $post->excerpt ?></p>
+
           <article>
-              <?php echo $post ?>
+            <?php echo $post->body ?>
           </article>
         <?php endforeach ?>
     </body>
